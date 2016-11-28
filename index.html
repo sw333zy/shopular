@@ -20,7 +20,7 @@
               ng-class='{onSale: (item.discount > 0)}'>
             <!-- <td>{{item.id}}</td> -->
             <td>{{item.name}}</td>
-            <td>{{item.price * sale.tax}}
+            <td>{{(item.price - item.discount)* sale.tax | number: 0}}
               <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
             <td>{{item.quantity}}</td>
             <td>{{item.color}}</td>
