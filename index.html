@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <title>Shopular</title>
     <link href='node_modules/normalize.css/normalize.css' rel='stylesheet' type='text/css'>
-    <link href='styles.css' rel='stylesheet' type='text/css'>
+    <link href='style.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <main ng-controller='storeDataController as sale'>
-    <h1>Shopular</h1>
+    <header>
+      <h1>Shopular</h1>
       <h2>Our Inventory</h2>
+    </header>
         <table>
           <!-- <th>ID</th> -->
           <th>Name</th>
@@ -19,7 +21,8 @@
           <!-- <th>Discount</th>
           <th>Total Price</th> -->
           <tr ng-repeat='item in sale.inventory'
-              ng-class='{onSale: (item.discount > 0)}'>
+              ng-class='{onSale: (item.discount > 0)}'
+              ng-class=>
             <!-- <td>{{item.id}}</td> -->
             <td>{{item.name}}</td>
             <td>{{(item.price - item.discount)* sale.tax | number: 0}}

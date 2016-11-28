@@ -1,0 +1,9 @@
+table, th, td {
+  border: $borderType;
+  width: $tableWidth;
+  margin: 0 auto;
+}
+
+tr:nth-child(odd) {
+   background-color: $backgroundColor;
+}
