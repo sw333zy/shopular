@@ -9,21 +9,23 @@
     <h1>Shopular</h1>
       <h2>Our Inventory</h2>
         <table>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Color</th>
-          <th>Discount</th>
-          <th>Total Price</th>
-          <tr ng-repeat='item in sale.inventory'>
-            <td>{{item.id}}</td>
+          <!-- <th>Discount</th>
+          <th>Total Price</th> -->
+          <tr ng-repeat='item in sale.inventory'
+              ng-class='{onSale: (item.discount > 0)}'>
+            <!-- <td>{{item.id}}</td> -->
             <td>{{item.name}}</td>
-            <td>{{item.price * sale.tax}}</td>
+            <td>{{item.price * sale.tax}}
+              <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
             <td>{{item.quantity}}</td>
             <td>{{item.color}}</td>
-            <td>{{item.discount}}</td>
-            <td>{{(item.price - item.discount) * sale.tax}}</td>
+            <!-- <td>{{item.discount}}</td> -->
+            <!-- <td>{{(item.price - item.discount) * sale.tax}}</td> -->
 
           </tr>
 
