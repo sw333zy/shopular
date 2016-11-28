@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html ng-app'store'>
+<html ng-app='store'>
   <head>
     <meta charset="utf-8">
     <title>Shopular</title>
   </head>
   <body>
+    <main ng-controller='storeDataController as items'>
     <h1>Shopular</h1>
+      <h2>Our Inventory</h2>
+        <ul>
+          <li> {{items.inventory}} </li>
+        </ul>
+    </main>
 
 
 
