@@ -1,5 +1,5 @@
 (function() {
   'use strict';
-  angular.module('lecture', []);
+  angular.module('store', []);
 
 }());
