@@ -13,30 +13,40 @@
       <h2>Our Inventory</h2>
     </header>
         <table>
-          <!-- <th>ID</th> -->
+
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Color</th>
-          <!-- <th>Discount</th>
-          <th>Total Price</th> -->
+
           <tr ng-repeat='item in sale.inventory'
               ng-class='{onSale: (item.discount > 0)}'
               ng-class=>
-            <!-- <td>{{item.id}}</td> -->
+
             <td>{{item.name}}</td>
             <td>{{(item.price - item.discount)* sale.tax | number: 0}}
               <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
             <td>{{item.quantity}}</td>
             <td>{{item.color}}</td>
-            <!-- <td>{{item.discount}}</td> -->
-            <!-- <td>{{(item.price - item.discount) * sale.tax}}</td> -->
+
 
           </tr>
 
         </table>
     </main>
+    <main>
+      <form>
+        <input type='text' value='' placeholder='Name'>
+        <input type='text' value='' placeholder='Price'>
+        <input type='text' value='' placeholder='Quantity'>
+        <input type='text' value='' placeholder='Color'>
+        <input type='text' value='' placeholder='Discount'>
 
+
+        <input type='submit' value='Submit'>
+
+      </form>
+    </main>
 
 
     <script src="node_modules/angular/angular.js"></script>
