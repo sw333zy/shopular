@@ -6,6 +6,7 @@
 
     function storeDataController() {
         console.log('Im making a store data controller');
+        this.sortOrder = 'price';
         this.newItem = {};
         this.inventory = [{
             "id": 2957,
@@ -92,6 +93,7 @@
             "color": "black",
             "discount": 12
         }];
+
 
 
         this.tax = 1.0575;
