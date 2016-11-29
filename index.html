@@ -26,13 +26,16 @@
     </header>
     <main ng-controller='storeDataController as sale'>
         <table>
+          <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Color</th>
             </tr>
-            <tr ng-repeat='item in sale.inventory | orderBy: sale.sortOrder'>
+          </thead>
+            <tbody>
+              <tr ng-repeat='item in sale.inventory | orderBy: sale.sortOrder'>
 
                 <td>{{item.name}}</td>
                 <td>{{(item.price - item.discount)* sale.tax | currency}}
@@ -42,6 +45,7 @@
 
 
             </tr>
+          </tbody>
         </table>
         <form
           novalidate
@@ -71,6 +75,8 @@
 
 
     </main>
+    <br>
+    <footer>Shopular 2016</footer>
 
 
 
