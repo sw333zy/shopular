@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html ng-app='store'>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Shopular</title>
     <link href='node_modules/normalize.css/normalize.css' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <main ng-controller='storeDataController as sale'>
+</head>
+
+<body>
+
     <header>
-      <h1>Shopular</h1>
-      <h2>Our Inventory</h2>
+        <h1>Shopular</h1>
+        <h2>Our Inventory</h2>
     </header>
+    <main ng-controller='storeDataController as sale'>
         <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Color</th>
+            </tr>
+            <tr ng-repeat='item in sale.inventory' ng-class='{onSale: (item.discount > 0)}' ng-class=>
 
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Color</th>
-
-          <tr ng-repeat='item in sale.inventory'
-              ng-class='{onSale: (item.discount > 0)}'
-              ng-class=>
-
-            <td>{{item.name}}</td>
-            <td>{{(item.price - item.discount)* sale.tax | number: 0}}
-              <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.color}}</td>
+                <td>{{item.name}}</td>
+                <td>{{(item.price - item.discount)* sale.tax | number: 0}}
+                    <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.color}}</td>
 
 
-          </tr>
-
+            </tr>
         </table>
+        <form class='addItem' name='items' ng-submit='sale.addProduct(sale.newItem)'>
+            <input type='text' name='items' placeholder='Name..' ng-model='sale.newItem.name'>
+            <input type='text' name='items' placeholder='Price..' ng-model='sale.newItem.price'>
+            <input type='text' name='items' placeholder='Quantity..' ng-model='sale.newItem.quantity'>
+            <input type='text' name='items' placeholder='Color..' ng-model='sale.newItem.color'>
+            <input type='text' name='items' placeholder='Discount..' ng-model='sale.newItem.discount'>
+            <button name='items'>Add Item</button>
+        </form>
+
+
     </main>
-    <main>
-      <form>
-        <input type='text' value='' placeholder='Name'>
-        <input type='text' value='' placeholder='Price'>
-        <input type='text' value='' placeholder='Quantity'>
-        <input type='text' value='' placeholder='Color'>
-        <input type='text' value='' placeholder='Discount'>
 
-
-        <input type='submit' value='Submit'>
-
-      </form>
-    </main>
 
 
     <script src="node_modules/angular/angular.js"></script>
     <script src="js/store.module.js"></script>
     <script src='js/storeData.controller.js'></script>
-  </body>
+
+</body>
+
 </html>
