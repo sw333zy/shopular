@@ -3,6 +3,10 @@ header {
 
 body {
   background-color: #b0d1cf; }
+  body [ng-cloak] {
+    display: none; }
+  body .ng-invalid.ng-touched {
+    border: 1px solid red; }
 
 table, th, td {
   border: 2px solid black;

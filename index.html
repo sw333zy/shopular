@@ -6,6 +6,16 @@
     <title>Shopular</title>
     <link href='node_modules/normalize.css/normalize.css' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' type='text/css'>
+<style>  [ng-cloak] {
+                display: none;
+            }
+            /*input:invalid, select:invalid {
+                border: 1px solid red;
+            }*/
+            .ng-invalid.ng-touched {
+                border: 1px solid red;
+            }</style>
+
 </head>
 
 <body>
@@ -33,12 +43,29 @@
 
             </tr>
         </table>
-        <form class='addItem' name='items' ng-submit='sale.addProduct(sale.newItem)'>
-            <input type='text' name='items' placeholder='Name..' ng-model='sale.newItem.name'>
-            <input type='text' name='items' placeholder='Price..' ng-model='sale.newItem.price'>
-            <input type='text' name='items' placeholder='Quantity..' ng-model='sale.newItem.quantity'>
-            <input type='text' name='items' placeholder='Color..' ng-model='sale.newItem.color'>
-            <input type='text' name='items' placeholder='Discount..' ng-model='sale.newItem.discount'>
+        <form
+          novalidate
+          class='addItem' name='items' ng-submit='items.$valid && sale.addProduct(sale.newItem)'>
+            <p ng-show='items.name.$touched && !items.name.$valid'>
+                    Please enter a Name!
+            </p>
+            <input type='text' name='name' placeholder='Name..' ng-model='sale.newItem.name' required>
+            <p ng-show='items.price.$touched && !items.price.$valid'>
+                    Please enter a Price!
+            </p>
+            <input type='text' name='price' placeholder='Price..' ng-model='sale.newItem.price' required>
+            <p ng-show='items.quantity.$touched && !items.quantity.$valid'>
+                    Please enter a Quantity!
+            </p>
+            <input type='text' name='quantity' placeholder='Quantity..' ng-model='sale.newItem.quantity' required>
+            <p ng-show='items.color.$touched && !items.color.$valid'>
+                    Please enter a Color!
+            </p>
+            <input type='text' name='color' placeholder='Color..' ng-model='sale.newItem.color' required>
+            <p ng-show='items.discount.$touched && !items.discount.$valid'>
+                    Please enter a Dicount!
+            </p>
+            <input type='text' name='discount' placeholder='Discount..' ng-model='sale.newItem.discount' required>
             <button name='items'>Add Item</button>
         </form>
 
