@@ -110,6 +110,10 @@
             });
         };
 
+        this.sortCatagory = function sortCatagory(sortOrder) {
+          this.sortOrder = sortOrder;
+        };
+
     }
 
 }());
