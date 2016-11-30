@@ -1,19 +1,28 @@
 header {
-  text-align: center; }
+    text-align: center;
+}
 
 body {
-  background-color: #b0d1cf; }
-  body [ng-cloak] {
-    display: none; }
-  body .ng-invalid.ng-touched {
-    border: 1px solid red; }
+    background-color: #b0d1cf;
+}
+
+body [ng-cloak] {
+    display: none;
+}
+
+body .ng-invalid.ng-touched {
+    border: 1px solid red;
+}
 
 table, th, td {
-  border: 2px solid black;
-  width: 80%;
-  margin: 0 auto; }
+    border: 2px solid black;
+    width: 80%;
+    margin: 0 auto;
+}
 
 tr:nth-child(odd) {
-  background-color: #8f989d; }
+    background-color: #8f989d;
+}
+
 
 /*# sourceMappingURL=style.css.map */

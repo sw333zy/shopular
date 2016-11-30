@@ -6,15 +6,18 @@
     <title>Shopular</title>
     <link href='node_modules/normalize.css/normalize.css' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' type='text/css'>
-<style>  [ng-cloak] {
-                display: none;
-            }
-            /*input:invalid, select:invalid {
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+        /*input:invalid, select:invalid {
                 border: 1px solid red;
             }*/
-            .ng-invalid.ng-touched {
-                border: 1px solid red;
-            }</style>
+
+        .ng-invalid.ng-touched {
+            border: 1px solid red;
+        }
+    </style>
 
 </head>
 
@@ -26,48 +29,46 @@
     </header>
     <main ng-controller='storeDataController as sale'>
         <table>
-          <thead>
-            <tr>
-                <th ng-click='sale.sortCatagory("name")'>Name</th>
-                <th ng-click='sale.sortCatagory("price")'>Price</th>
-                <th ng-click='sale.sortCatagory("quantity")'>Quantity</th>
-                <th ng-click='sale.sortCatagory("color")'>Color</th>
-            </tr>
-          </thead>
+            <thead>
+                <tr>
+                    <th ng-click='sale.sortCatagory("name")'>Name</th>
+                    <th ng-click='sale.sortCatagory("price")'>Price</th>
+                    <th ng-click='sale.sortCatagory("quantity")'>Quantity</th>
+                    <th ng-click='sale.sortCatagory("color")'>Color</th>
+                </tr>
+            </thead>
             <tbody>
-              <tr ng-repeat='item in sale.inventory | orderBy: sale.sortOrder'>
+                <tr ng-repeat='item in sale.inventory | orderBy: sale.sortOrder'>
 
-                <td>{{item.name}}</td>
-                <td>{{(item.price - item.discount)* sale.tax | currency}}
-                    <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.color}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{(item.price - item.discount)* sale.tax | currency}}
+                        <img src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png' ng-hide='item.discount === 0'></td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.color}}</td>
 
 
-            </tr>
-          </tbody>
+                </tr>
+            </tbody>
         </table>
-        <form
-          novalidate
-          class='addItem' name='items' ng-submit='items.$valid && sale.addProduct(sale.newItem)'>
+        <form novalidate class='addItem' name='items' ng-submit='items.$valid && sale.addProduct(sale.newItem)'>
             <p ng-show='items.name.$touched && !items.name.$valid'>
-                    Please enter a Name!
+                Please enter a Name!
             </p>
             <input type='text' name='name' placeholder='Name..' ng-model='sale.newItem.name' required>
             <p ng-show='items.price.$touched && !items.price.$valid'>
-                    Please enter a Price!
+                Please enter a Price!
             </p>
             <input type='text' name='price' placeholder='Price..' ng-model='sale.newItem.price' required>
             <p ng-show='items.quantity.$touched && !items.quantity.$valid'>
-                    Please enter a Quantity!
+                Please enter a Quantity!
             </p>
             <input type='text' name='quantity' placeholder='Quantity..' ng-model='sale.newItem.quantity' required>
             <p ng-show='items.color.$touched && !items.color.$valid'>
-                    Please enter a Color!
+                Please enter a Color!
             </p>
             <input type='text' name='color' placeholder='Color..' ng-model='sale.newItem.color' required>
             <p ng-show='items.discount.$touched && !items.discount.$valid'>
-                    Please enter a Dicount!
+                Please enter a Dicount!
             </p>
             <input type='text' name='discount' placeholder='Discount..' ng-model='sale.newItem.discount' required>
             <button name='items'>Add Item</button>

@@ -103,15 +103,15 @@
             console.log('hello');
             this.inventory.push({
                 name: product.name,
-                price: Number (product.price),
-                quantity: Number (product.quantity),
-                discount: Number (product.discount),
+                price: Number(product.price),
+                quantity: Number(product.quantity),
+                discount: Number(product.discount),
                 color: product.color
             });
         };
 
         this.sortCatagory = function sortCatagory(sortOrder) {
-          this.sortOrder = sortOrder;
+            this.sortOrder = sortOrder;
         };
 
     }
