@@ -3,6 +3,8 @@
     angular.module('store')
         .controller('storeDataController', storeDataController)
 
+    // storeDataController.$inject = [ 'ProductService' ];
+
 
     function storeDataController() {
         console.log('Im making a store data controller');
@@ -99,8 +101,15 @@
         this.tax = 1.0575;
         console.log(this.inventory[4].price * this.tax);
 
+        /**
+         * [addProduct description]
+         * @param {[type]} product [description]
+         */
         this.addProduct = function addProduct(product) {
             console.log('hello');
+
+            // TODO: audit the data with if's
+
             this.inventory.push({
                 name: product.name,
                 price: Number(product.price),
@@ -110,8 +119,18 @@
             });
         };
 
+        /**
+         * Sort our data by whatever property you give it
+         * @param  {String} sortOrder The property to sort by
+         * @return {void}
+         */
         this.sortCatagory = function sortCatagory(sortOrder) {
-            this.sortOrder = sortOrder;
+            if (this.sortOrder === sortOrder) {
+              this.sortOrder = "-" + sortOrder;
+            } else {
+              this.sortOrder = sortOrder;
+            }
+            // "name" / "-name"
         };
 
     }
