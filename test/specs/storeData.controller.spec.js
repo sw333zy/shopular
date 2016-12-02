@@ -20,7 +20,6 @@
                 ];
             };
             mockProductService.addNew = function(argOne) {
-                // we don't need to do anything in here... this is FAKE!
                 mockProductService.addNew.numTimesCalled++;
                 mockProductService.addNew.lastArgument = argOne;
             };
@@ -35,14 +34,13 @@
               expect(storeDataController.inventory.length).to.equal(1);
           });
 
-          // it('should use the service to add a new product', function() {
-          //     storeDataController.addNew.notaProduct = 'bar';
-          //     var aProduct = {};
-          //     storeDataController.add(aProduct);
-          //     expect(storeDataController.addNew.notaProduct).to.be.undefined;
-          //     expect(mockProductService.addNew.numTimesCalled).to.equal(1);
-          //     expect(mockProductService.addNew.lastArgument).to.equal(aProduct);
-          // });
+          it('should use the service to add a new product', function() {
+              var addNewItem = {}
+              storeDataController.newItem.dog = 'k9';
+
+              storeDataController.addProduct(addNewItem);
+              expect(storeDataController.newItem.dog).to.equal('k9');
+            });
 
       });
 
