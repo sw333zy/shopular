@@ -27,6 +27,13 @@
         <h1>Shopular</h1>
         <h2>Our Inventory</h2>
     </header>
+    <main ng-controller='UserController as user'>
+          <form name='addUser' ng-submit='user.add(user.newUser)'>
+              <input type='text' name='userName' ng-model='user.newUser.name'>
+
+              <input type='submit'>
+          </form>
+      </main>
     <main ng-controller='storeDataController as sale'>
         <table>
             <thead>
@@ -68,7 +75,7 @@
             </p>
             <input type='text' name='color' placeholder='Color..' ng-model='sale.newItem.color' required>
             <p ng-show='items.discount.$touched && !items.discount.$valid'>
-                Please enter a Dicount!
+                Please enter a Discount!
             </p>
             <input type='text' name='discount' placeholder='Discount..' ng-model='sale.newItem.discount' required>
             <button name='items'>Add Item</button>
@@ -86,7 +93,9 @@
     <script src="js/store.module.js"></script>
     <script src='js/storeData.controller.js'></script>
     <script src='js/product.service.js'></script>
-  
+    <script src='js/user.controller.js'></script>
+    <script src='js/user.service.js'></script>
+
 
 
 </body>
