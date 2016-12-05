@@ -1,4 +1,4 @@
-(function(){
+(function() {
     'use strict';
 
     var expect = chai.expect;
@@ -15,9 +15,14 @@
 
         beforeEach(inject(function($controller) {
             mockProductService.getAll = function() {
-                return [
-                    { name: 'Car', price: 2600, paid: false, quantity: 4, color: 'red', discount: 500}
-                ];
+                return [{
+                    name: 'Car',
+                    price: 2600,
+                    paid: false,
+                    quantity: 4,
+                    color: 'red',
+                    discount: 500
+                }];
             };
             mockProductService.addNew = function(argOne) {
                 mockProductService.addNew.numTimesCalled++;
@@ -28,20 +33,35 @@
             storeDataController = $controller('storeDataController');
         }));
         it('should have correct scope variables', function() {
-              expect(storeDataController.newItem).to.be.an('object');
-              expect(Object.keys(storeDataController.newItem).length).to.equal(0);
-              expect(storeDataController.inventory).to.be.an('array');
-              expect(storeDataController.inventory.length).to.equal(1);
-          });
+            expect(storeDataController.newItem).to.be.an('object');
+            expect(Object.keys(storeDataController.newItem).length).to.equal(0);
+            expect(storeDataController.inventory).to.be.an('array');
+            expect(storeDataController.inventory.length).to.equal(1);
+        });
 
-          it('should use the service to add a new product', function() {
-              var addNewItem = {}
-              storeDataController.newItem.dog = 'k9';
+        it('should use the service to add a new product', function() {
+            var addNewItem = {}
+            storeDataController.newItem.dog = 'k9';
 
-              storeDataController.addProduct(addNewItem);
-              expect(storeDataController.newItem.dog).to.equal('k9');
+            storeDataController.addProduct(addNewItem);
+            expect(storeDataController.newItem.dog).to.equal('k9');
+        });
+
+
+
+        it("should sort inventory by the header clicked", function(){
+            storeDataController.sortCatagory('name');
+                    expect(storeDataController.sortOrder).to.equal('name');
             });
 
-      });
 
-  })();
+        it("should change sort order backwards when header is clicked again", function(){
+            storeDataController.sortCatagory('name');
+            expect(storeDataController.sortOrder).to.equal('-name');
+          });
+
+
+
+    });
+
+})();
