@@ -56,7 +56,7 @@
 
 
         it("should change sort order backwards when header is clicked again", function(){
-            storeDataController.sortCatagory('name');
+            storeDataController.sortCatagory('-name');
             expect(storeDataController.sortOrder).to.equal('-name');
           });
 
