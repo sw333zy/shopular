@@ -1,2 +1,4 @@
 node_modules/
 .sass-cache/
+src/js/userLogin.service.js
+src/js/user.controller.js
